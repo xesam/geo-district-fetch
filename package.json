@@ -1,0 +1,10 @@
+{
+    "name": "geo-district-fetch",
+    "description": "",
+    "version": "0.1.0",
+    "author": "xesam <xesamguo@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "0.18.0"
+    }
+}
