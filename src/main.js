@@ -1,19 +1,8 @@
-//https://restapi.amap.com/v3/config/district?keywords=北京&subdistrict=2&key=<用户的key>
-const axios = require("axios");
+const Service = require("./Service");
+const DistrictFetcher = require('./DistrictFetcher');
 
-cosnt KEY = "212dafff51f98079d8935be29d4baee9";
+const KEY = "212dafff51f98079d8935be29d4baee9";
+const China = "中华人民共和国";
 
-axios
-    .get('https://restapi.amap.com/v3/config/district', {
-        params: {
-            key: KEY,
-            subdistrict: 1,
-            keywords: "北京"
-        }
-    })
-    .then(res => {
-        console.log(res);
-    })
-    .catch(e => {
-        console.error(e);
-    });
+new DistrictFetcher(new Service(KEY), '../dist').start(China);
+
