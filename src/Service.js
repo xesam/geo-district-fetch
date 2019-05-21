@@ -28,10 +28,11 @@ class Service {
                 }
             })
             .then(res => {
-                return res.data;
-            })
-            .catch(e => {
-                console.error(e);
+                let data = res.data;
+                if (data !== '10000') {
+                    throw new Error(JSON.stringify(data));
+                }
+                return data;
             });
     }
 

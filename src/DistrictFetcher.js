@@ -30,9 +30,10 @@ class DistrictGenerator {
 }
 
 class DistrictFetcher {
-    constructor(service, outputDir) {
+    constructor(service, options) {
         this.service = service;
-        this.outputDir = outputDir;
+        this.outputDir = options.outputDir;
+        this.interval = options.interval;
     }
 
     getPath(file_name) {
@@ -50,7 +51,7 @@ class DistrictFetcher {
     async start(root) {
         let skeleton = await this.fetchSkeleton(root);
         this.district = new DistrictGenerator(skeleton).get();
-        this.timer = new Timer(1000, {
+        this.timer = new Timer(this.interval, {
             onTick: (timer) => {
                 timer.stop();
                 let next = this.district.next();
