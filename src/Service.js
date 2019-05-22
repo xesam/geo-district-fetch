@@ -29,7 +29,7 @@ class Service {
             })
             .then(res => {
                 let data = res.data;
-                if (data !== '10000') {
+                if (data.infocode !== '10000') {
                     throw new Error(JSON.stringify(data));
                 }
                 return data;
