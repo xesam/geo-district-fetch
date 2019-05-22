@@ -45,7 +45,7 @@ class DistrictFetcher {
     }
 
     getDistrictPath(district) {
-        return this.getPath(`${district.adcode}.${district.name}.json`);
+        return this.getPath(`${district.adcode}.json`);
     }
 
     async start(root) {
