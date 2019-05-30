@@ -12,15 +12,14 @@ class DistrictGenerator {
     }
 
     * gen(district) {
+        yield {
+            adcode: district.adcode,
+            name: district.name
+        };
         if (district.districts.length > 0) {
             for (let d of district.districts) {
                 yield* this.gen(d);
             }
-        } else {
-            yield {
-                adcode: district.adcode,
-                name: district.name
-            };
         }
     }
 
