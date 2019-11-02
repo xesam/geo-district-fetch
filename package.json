@@ -5,7 +5,7 @@
   "author": "xesam <xesamguo@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.19.0",
     "chelaile-timer": "0.0.1",
     "write-file-promise": "1.0.0",
     "read-files-promise": "1.1.1"
