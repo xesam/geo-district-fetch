@@ -1,10 +1,14 @@
 const Service = require("./Service");
 const DistrictFetcher = require('./DistrictFetcher');
 
-const KEY = "这里是你的 map key";
-const China = "中华人民共和国";
-
-new DistrictFetcher(new Service(KEY), {
-    outputDir: '../dist',
-    interval: 100
-}).start(China);
+if (!module.parent) {
+    /**
+     * node ./main xxxxxx 中华人民共和国
+     * */
+    const [node, script, key, target] = process.argv;
+    const service = new Service(key);
+    new DistrictFetcher(service).start(target, {
+        outputDir: '../dist',
+        interval: 100
+    });
+}

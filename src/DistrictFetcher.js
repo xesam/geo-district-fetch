@@ -12,6 +12,7 @@ class DistrictGenerator {
     }
 
     * gen(district) {
+        console.log(district)
         yield {
             adcode: district.adcode,
             name: district.name
@@ -29,10 +30,8 @@ class DistrictGenerator {
 }
 
 class DistrictFetcher {
-    constructor(service, options) {
+    constructor(service) {
         this.service = service;
-        this.outputDir = options.outputDir;
-        this.interval = options.interval;
     }
 
     getPath(file_name) {
@@ -47,7 +46,9 @@ class DistrictFetcher {
         return this.getPath(`${district.adcode}.json`);
     }
 
-    async start(root) {
+    async start(root, opts) {
+        this.outputDir = opts.outputDir;
+        this.interval = opts.interval;
         let skeleton = await this.fetchSkeleton(root);
         this.district = new DistrictGenerator(skeleton).get();
         this.timer = new Timer(this.interval, {
