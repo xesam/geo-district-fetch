@@ -2,6 +2,21 @@
 
 获取行政区边界数据并转化为 geojson 格式
 
+## 概览
+```mermaid
+classDiagram
+
+class DistrictSource {
+
+}
+
+class DistrictFecter {
+    -districtSource:DistrictSource
+    +start(): void
+}
+
+```
+
 ## 使用方式
 
 ```javascript
